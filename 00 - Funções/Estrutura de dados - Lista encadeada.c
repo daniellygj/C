@@ -20,6 +20,21 @@ LISTA *insereInicio(LISTA *lista, int info) {
     return novo;
 }
 
+
+LISTA *insereFinal(LISTA *lista, int info) {
+    LISTA *temp = lista;
+
+    while (temp != NULL) // Avança até chegar no final, que é nulo
+        temp = temp->prox;
+
+    temp = malloc(sizeof(lista));
+    temp->info = info;
+    temp->prox = NULL;
+
+    return temp;
+}
+
+
 void imprimir(LISTA *lista) {
     LISTA *temp;
 
@@ -101,7 +116,7 @@ int main() {
     lista = insereInicio(lista, 10);
     lista = insereInicio(lista, 15);
     lista = insereInicio(lista, 20);
-    //imprimir(lista);
+    imprimir(lista);
 
     //if (buscar(lista, 0) == NULL) printf("Não encontrado\n");
     //else printf("Encontrado %d\n", lista->info);
